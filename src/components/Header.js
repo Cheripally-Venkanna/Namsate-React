@@ -1,4 +1,4 @@
-import { LOGO_URL } from "../../utils/imagedata";
+import { LOGO_URL } from "../utils/imagedata";
 const Header = ()=>{
     return(
         <div className="header">

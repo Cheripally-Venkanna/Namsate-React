@@ -1,5 +1,5 @@
 import Body from "./Body";
-import { RES_URL } from "../../utils/imagedata";
+import { RES_URL } from "../utils/imagedata";
 const Container = ({prop}) => {
         
 
