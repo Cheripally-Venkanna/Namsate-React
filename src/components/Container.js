@@ -1,4 +1,5 @@
 import Body from "./Body";
+import { RES_URL } from "../../utils/imagedata";
 const Container = ({prop}) => {
         
 
@@ -6,7 +7,7 @@ const Container = ({prop}) => {
 
 return (
  <div id={id} className="mindiv">
-   <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}/>
+   <img className="res-logo" alt="res-logo" src={RES_URL+cloudinaryImageId}/>
    <h2>{name}</h2>
    <h3>rating :{avgRating}</h3>
    <h3>amount :{costForTwo}</h3>

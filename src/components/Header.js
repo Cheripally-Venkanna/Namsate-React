@@ -1,9 +1,9 @@
-
+import { LOGO_URL } from "../../utils/imagedata";
 const Header = ()=>{
     return(
         <div className="header">
             <div className="logo">
-            <img id="image" src="https://tse2.mm.bing.net/th?id=OIP.9hl54qFeHA_2o_PIo3JhswAAAA&pid=Api&P=0&h=180"/>
+            <img id="image" src={LOGO_URL}/>
             </div>
             <div className="list">
                 <ul >
