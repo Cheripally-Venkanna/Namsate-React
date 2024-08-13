@@ -1,3 +1,57 @@
-#main {
-    color: blue;
+.header{
+    height: 100px;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: gray
+   
+}
+#image{
+    width: 100px;
+    height: 80px;
+    padding: 10px;
+}
+.list > ul {
+    display: flex;
+}
+.list > ul >li {
+    color: white;
+    font-size: 20px;
+    list-style: none;
+    Padding:10px;
+    margin :10px;
+}
+.restaurants{
+    margin: 10px;
+  background-color: #f0f0f0;
+    width:150px;
+    
+    
+}
+
+.Search{
+    padding: 10px;
+}
+
+.res-container{  
+ display: flex;
+ flex-wrap: wrap;
+ 
+}
+.res-logo{
+  height: 125px;
+  width: 100%;
+}
+.mindiv{
+   padding: 10px;
+    background:skyblue;
+    margin: 10px;
+    width: 200px;
+    
+}
+.mindiv:hover {
+    cursor:pointer;
+    border: 1px solid black;
 }
