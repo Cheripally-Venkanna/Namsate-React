@@ -4,9 +4,8 @@ const Container = ({prop}) => {
         
 
     let {id,name,cloudinaryImageId,avgRating,costForTwo} = prop?.info;
-
 return (
- <div id={id} className="mindiv">
+ <div id={id} className="mindiv"z>
    <img className="res-logo" alt="res-logo" src={RES_URL+cloudinaryImageId}/>
    <h2>{name}</h2>
    <h3>rating :{avgRating}</h3>

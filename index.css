@@ -46,7 +46,8 @@
 }
 .mindiv{
    padding: 10px;
-    background:skyblue;
+    background:#f0f0f0
+    ;
     margin: 10px;
     width: 200px;
     
@@ -61,4 +62,47 @@
 .btn{
     color: blue;
     padding : 10px ;
+}
+.fakemain{
+    display: flex;
+    flex-wrap: wrap;
+}
+.fakerestro{
+    margin: 10px;
+  background-color:#f0f0f0;
+    width:200px;
+    height: 300px;
+}
+.highfood{
+    margin: 10px;
+    color: blue;
+    padding : 10px ;   
+}
+.loginbtn{
+    font-size: 15px;
+width: 100px;
+    padding-left :5px;
+    padding-right: 5px;
+    color :blue;
+    border: 0px;
+
+}
+.input{
+    margin :10px;
+    padding: 5px;
+
+}
+.fakeinput{
+    
+    margin :10px;
+    padding: 5px;
+}
+
+.userfunction{
+    padding: 10px;
+    border: 1px solid black;
+}
+.userclass{
+    padding: 10px;
+    border: 1px solid black;
 }

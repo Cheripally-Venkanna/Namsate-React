@@ -1,6 +1,7 @@
 import Container from "./Container";
 import { useEffect, useState } from "react";
 import FakeComponent from "./FakeComponent";
+import { Link } from "react-router-dom";
 
 
 
@@ -14,11 +15,12 @@ const Body = ()=>{
             fetchdata();
         },[]);
     const fetchdata = async ()=>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9590541&lng=77.64015069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        setresdata(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setfiltereddata(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setresdata(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setfiltereddata(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
+     
     if(resdata.length===0){
         return (
         
@@ -47,10 +49,15 @@ const Body = ()=>{
                 </div>
         <div className="res-container">
             {  
-               filtereddata.map((res)=>{
+               resdata.map((res)=>
                 
-        return (<Container key={res.info.id} prop={res}/>)
-  }  )
+         (
+
+    <Link 
+    key={res.info.id} to={"/Restaurant/"+ res.info.id}><Container  prop={res} />
+    </Link>  
+        )
+   )
 }
         </div>
         </div>
