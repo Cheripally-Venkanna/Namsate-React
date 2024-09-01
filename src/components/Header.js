@@ -1,23 +1,29 @@
 import { LOGO_URL } from "../utils/imagedata";
 import { useState } from "react";
 import {Link} from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = ()=>{
     const [btn,setbtn] = useState("Login");
+
+    const onlineStatus = useOnlineStatus();
     
     return(
-        <div className="header">
-            <div className="logo">
-            <img id="image" src={LOGO_URL}/>
+        <div className="flex justify-between bg-slate-200">
+            <div className="w-32 m-2 p-2 bg-transparent">
+            <img className="rounded-md" src={LOGO_URL}/>
             </div>
-            <div className="list">
-                <ul >
-                <li><Link to="/">Home</Link></li>
-                 <li><Link to="/About">About Us</Link></li>
-                 <li><Link to="/Contact">Contact Us</Link></li>   
-                               <li>Cart</li>
-                 <button className="loginbtn" onClick={()=>{
+            <div className="flex items-center">
+                <ul className="flex p-4 m-4">
+                <li className="m-2 p-2"><Link to="/grocerys">Grocerys</Link></li>
+                <li className="m-2 p-2">Status : {onlineStatus ? "Online 💚":"Offline ❤️"  }</li>
+                <li className="m-2 p-2"><Link to="/">Home</Link></li>
+                <li className="m-2 p-2"><Link to="/About">About Us</Link></li>
+                <li className="m-2 p-2"><Link to="/Contact">Contact Us</Link></li>   
+                               <li  className="m-2 p-2">Cart</li>
+                <li  className="m-2 p-2"><button className="loginbtn" onClick={()=>{
+                    console.log("button")
                    btn === "Login" ? setbtn("Logout") : setbtn("Login");
-                  } }>{btn}</button>
+                  } }>{btn}</button></li> 
                 </ul>
             </div>
 

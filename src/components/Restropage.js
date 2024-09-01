@@ -3,25 +3,16 @@ import {useEffect,useState} from "react";
 import FakeComponent from "./FakeComponent";
 import { useParams } from "react-router-dom";
 import { COMMON_URL } from "../utils/imagedata";
+import useRestroMenu from "../utils/useRestroMenu";
 
 
 
 const Restropage = ()=>{
-    const [restData,getRestData] = useState(null);
+    
     const {resId} = useParams();
     
-
-    useEffect(()=>{
-        eachRestroData();
-    },[])
-    const eachRestroData = async() => {
-        const data = await fetch(COMMON_URL+resId);
-        const json =  await data.json(); 
-        console.log(json);
-        getRestData(json.data);
-    };
-  
-
+   const restData = useRestroMenu(resId);
+    
     if(restData === null) {
         return <FakeComponent/>
     }
@@ -32,10 +23,10 @@ const Restropage = ()=>{
     
     return(
         <div className = "menu">
-           <h2>{name}</h2>
-           <h3>{cuisines.join(",")}</h3>
-           <h3>Rs.{costForTwo/100}</h3>
-            <h2>Menu</h2>
+           <h2 className="font-bold">{name}</h2>
+           <h3 className="font-bold">{cuisines.join(",")}</h3>
+           <h3 className="font-bold">Rs.{costForTwo/100}</h3>
+            <h1 className="font-bold">Menu</h1>
             <ul>
                 {itemCards.map(item =>(<li key={item.card.info.id}>{item.card.info.name} -  Rs.{item.card.info.price/100}</li>) )}
             </ul>
