@@ -1,4 +1,5 @@
 import React from "react"; 
+import UserName from "../utils/UserName";
 
 class UserClass extends React.Component {
     constructor(props){
@@ -13,7 +14,7 @@ class UserClass extends React.Component {
     }
 
    async componentDidMount(){
-    // console.log("componentDidMount")
+ 
     const data = await fetch("https://api.github.com/users/Cheripally-Venkanna");
     const json = await data.json();
     this.timer = setInterval(()=>{
@@ -25,17 +26,17 @@ class UserClass extends React.Component {
       })
     }
     componentDidUpdate(){
-        // console.log("componentDidUpdate")
+     
     }
     componentWillUnmount(){
          clearInterval(this.timer);
-        console.log("componentWillUnmount")
+        
     }
 
     render () {
         const {name,location} = this.props;
         const { login , type , id } = this.state.dataInfo;
-        // console.log("render");
+        
         
         
         return (
@@ -43,7 +44,13 @@ class UserClass extends React.Component {
                  <h1>{id}</h1>
                 <h2>{login}</h2>
                 <h2>{type}</h2>
-                <h1>cheripally</h1>
+                <div>
+                    <UserName.Consumer>
+                        {({userName})=> 
+                           <h1 className="font-bold">{userName}</h1>
+                     }
+                    </UserName.Consumer>
+                </div>
                 <h2>venkanna</h2>
                 
             </div>

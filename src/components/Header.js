@@ -1,11 +1,13 @@
 import { LOGO_URL } from "../utils/imagedata";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserName from "../utils/UserName";
 const Header = ()=>{
     const [btn,setbtn] = useState("Login");
 
     const onlineStatus = useOnlineStatus();
+    const {userName}= useContext(UserName);
     
     return(
         <div className="flex justify-between bg-slate-200">
@@ -23,7 +25,8 @@ const Header = ()=>{
                 <li  className="m-2 p-2"><button className="loginbtn" onClick={()=>{
                     console.log("button")
                    btn === "Login" ? setbtn("Logout") : setbtn("Login");
-                  } }>{btn}</button></li> 
+                  } }>{btn}</button></li>
+                  <li>{userName}</li> 
                 </ul>
             </div>
 

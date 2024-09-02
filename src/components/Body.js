@@ -38,7 +38,7 @@ const Body = ()=>{
     return (
         <div className="body">
             <div>
-                {console.log(resdata)}
+        
                 <input type = "text" className="m-4 p-2 border border-solid border-black rounded-md" placeholder="Enter the resturent name" value ={inputtext} onChange={(e)=>{
                      setinputtext(e.target.value) 
                 }}/>
