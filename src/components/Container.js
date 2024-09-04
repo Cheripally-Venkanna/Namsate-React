@@ -1,8 +1,11 @@
 import Body from "./Body";
 import { RES_URL } from "../utils/imagedata";
-const Container = ({prop}) => {
-        
+import UserName from "../utils/UserName";
+import { useContext } from "react";
 
+
+const Container = ({prop}) => {
+        const {userName} = useContext(UserName)
     let {id,name,cloudinaryImageId,avgRating,costForTwo} = prop?.info;
 return (
   <div className="w-56 h-120 p-2 m-2 hover:bg-slate-200 bg-slate-100 rounded-md">
@@ -11,6 +14,7 @@ return (
    <h2 className="font-bold">{name}</h2>
    <h3>rating :{avgRating}</h3>
    <h3>amount :{costForTwo}</h3>
+   <h3>{userName}</h3>
  </div>
  </div>
 );

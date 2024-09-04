@@ -1,8 +1,9 @@
 import Container,{withPromotedCard} from "./Container";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FakeComponent from "./FakeComponent";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserName from "../utils/UserName";
 
 
 
@@ -11,6 +12,8 @@ const Body = ()=>{
     const [resdata,setresdata] = useState([]); 
     const [filtereddata,setfiltereddata] = useState([]);
     const [inputtext,setinputtext] = useState(""); 
+
+    const {userName,setUserInfo} = useContext(UserName);
 
     
     const Promo = withPromotedCard(Container);
@@ -56,7 +59,12 @@ const Body = ()=>{
                    setfiltereddata(newdata); 
                 }} >
                     High Rating Food Cards</button>
+                    <label>UserName  : </label>
+                    <input className="border border-blue-500 p-2 rounded-md " placeholder="Enter User Info" 
+                    value = {userName}
+                    onChange={(e)=> setUserInfo(e.target.value)}></input>
                 </div>
+                
         <div className="flex flex-wrap">
             {
                filtereddata.map((res)=>     
@@ -64,7 +72,7 @@ const Body = ()=>{
     <Link
           key={res.info.id} to={"/Restaurant/"+ res.info.id}>         
             {   
-                res.info.avgRating === 4.5 ? (<Promo prop={res}/>) : ( <Container  prop={res}/>)    
+                res.info.avgRating >= 4.4 ? (<Promo prop={res}/>) : ( <Container  prop={res}/>)    
             }
     </Link>  
         )
